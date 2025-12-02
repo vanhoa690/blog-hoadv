@@ -1,0 +1,33 @@
+---
+// src/pages/404.astro
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Không tìm thấy trang">
+  <div style="text-align: center; padding: 6rem 2rem;">
+    <h1 style="font-size: 4rem; margin-bottom: 1rem; color: #e53e3e;">404</h1>
+    <h2 style="font-size: 2rem; margin-bottom: 2rem; color: #2d3748;">
+      Trang không tồn tại
+    </h2>
+    <p
+      style="color: #718096; margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto;"
+    >
+      Trang bạn đang tìm kiếm có thể đã bị xóa, đổi tên hoặc tạm thời không khả
+      dụng.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+      <a
+        href="/"
+        style="background: #3182ce; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;"
+      >
+        Về trang chủ
+      </a>
+      <a
+        href="/contact"
+        style="background: #e2e8f0; color: #4a5568; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;"
+      >
+        Liên hệ hỗ trợ
+      </a>
+    </div>
+  </div>
+</Layout>
