@@ -8,8 +8,6 @@ import icon from "astro-icon";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const hasExternalScripts = false;
-
 export default defineConfig({
   output: "static",
 
@@ -17,22 +15,7 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    icon({
-      include: {
-        tabler: ["*"],
-        "flat-color-icons": [
-          "template",
-          "gallery",
-          "approval",
-          "document",
-          "advertising",
-          "currency-exchange",
-          "voice-presentation",
-          "business-contact",
-          "database",
-        ],
-      },
-    }),
+    icon(),
   ],
 
   image: {
