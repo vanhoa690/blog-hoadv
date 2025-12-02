@@ -1,6 +1,7 @@
 ---
 title: "React vs Vue: Nên chọn framework nào?"
-slug: bai-viet-2
+slug: "bai-viet-2"
+draft: false
 date: 2024-01-10
 description: "So sánh React và Vue để lựa chọn framework phù hợp"
 author: "Trần Thị B"

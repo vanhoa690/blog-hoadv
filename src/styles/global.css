@@ -1,29 +1,3 @@
-/* src/styles/global.css */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  background: #f9f9f9;
-}
-
-a {
-  color: #3182ce;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

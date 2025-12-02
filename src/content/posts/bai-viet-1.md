@@ -1,6 +1,7 @@
 ---
 title: "Hướng dẫn học Astro cơ bản"
-slug: bai-viet-1
+slug: "bai-viet-1"
+draft: false
 date: 2024-01-15
 description: "Bài viết hướng dẫn học Astro từ cơ bản đến nâng cao"
 author: "Nguyễn Văn A"
