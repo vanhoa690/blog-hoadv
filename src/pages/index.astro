@@ -1,76 +1,25 @@
 ---
 // src/pages/index.astro
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import Stats from '~/components/Stats.astro';
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
 // Lấy tất cả bài viết từ collection "posts"
-const allPosts = await getCollection("posts");
+const allPosts = await getCollection('posts');
 
 // Lọc bài viết không phải draft và sắp xếp theo ngày mới nhất
 const posts = allPosts
   .filter((post) => !post.data.draft)
-  .sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  );
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <Layout title="Trang chủ - Blog của tôi">
-  <div style="padding: 4rem 0 2rem;">
-    <h1 style="font-size: 3rem; margin-bottom: 1rem;">
-      Chào mừng đến với Blog của tôi
-    </h1>
-    <p style="font-size: 1.25rem; color: #666;">
-      Nơi chia sẻ kiến thức về lập trình và công nghệ
-    </p>
-  </div>
-
-  <div style="margin-bottom: 4rem;">
-    <h2
-      style="font-size: 2rem; margin-bottom: 2rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;"
-    >
-      Bài viết mới nhất ({posts.length})
-    </h2>
-
-    {
-      posts.length === 0 ? (
-        <p style="text-align: center; color: #718096; padding: 3rem;">
-          Chưa có bài viết nào. Hãy quay lại sau!
-        </p>
-      ) : (
-        <div style="display: grid; gap: 2rem;">
-          {posts.map((post) => (
-            <article style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                <h3 style="margin: 0; font-size: 1.5rem;">
-                  <a href={`/posts/${post.data.slug}`} style="color: #2d3748;">
-                    {post.data.title}
-                  </a>
-                </h3>
-                <span style="color: #718096; font-size: 0.9rem;">
-                  {new Date(post.data.date).toLocaleDateString("vi-VN")}
-                </span>
-              </div>
-
-              <p style="color: #4a5568; margin-bottom: 1rem;">
-                {post.data.description}
-              </p>
-
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  {post.data.tags.map((tag: string) => (
-                    <span style="background: #e2e8f0; color: #4a5568; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem;">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-                <div style="color: #718096; font-size: 0.9rem;">
-                  Tác giả: {post.data.author}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      )
-    }
-  </div>
+  <Stats
+    stats={[
+      { title: 'Downloads', amount: '132K' },
+      { title: 'Stars', amount: '24.8K' },
+      { title: 'Forks', amount: '10.3K' },
+      { title: 'Users', amount: '48.4K' },
+    ]}
+  />
 </Layout>
