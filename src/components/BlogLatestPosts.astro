@@ -1,0 +1,36 @@
+---
+import type { Widget } from '~/types';
+import WidgetWrapper from './ui/WidgetWrapper.astro';
+import Grid from '~/components/Grid.astro';
+import { getCollection } from 'astro:content';
+
+export interface Props extends Widget {
+  title?: string;
+  linkText?: string;
+  linkUrl?: string | URL;
+  information?: string;
+  count?: number;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  linkText = 'Xem tat ca',
+  linkUrl = '/blog',
+  information = await Astro.slots.render('information'),
+  count = 40,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+// Lấy tất cả bài viết từ collection "posts"
+const posts = await getCollection('posts');
+
+console.log(posts);
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container as string} bg={bg}>
+  <Grid posts={posts} />
+</WidgetWrapper>

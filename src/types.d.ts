@@ -1,3 +1,6 @@
+import type { ImageMetadata } from 'astro';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+
 export interface Widget {
   id?: string;
   isDark?: boolean;
@@ -20,4 +23,32 @@ export interface Stat {
 
 export interface Stats extends Omit<Headline, 'classes'>, Widget {
   stats?: Array<Stat>;
+}
+
+export interface Post {
+  id: string;
+
+  slug: string;
+
+  permalink: string;
+
+  publishDate: Date;
+  updateDate?: Date;
+
+  title: string;
+  excerpt?: string;
+  image?: ImageMetadata | string;
+
+  //   category?: Taxonomy;
+  //   tags?: Taxonomy[];
+  author?: string;
+
+  //   metadata?: MetaData;
+
+  draft?: boolean;
+
+  Content?: AstroComponentFactory;
+  content?: string;
+
+  readingTime?: number;
 }

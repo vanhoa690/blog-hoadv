@@ -2,18 +2,12 @@
 // src/pages/index.astro
 import Stats from '~/components/Stats.astro';
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-// Lấy tất cả bài viết từ collection "posts"
-const allPosts = await getCollection('posts');
-
-// Lọc bài viết không phải draft và sắp xếp theo ngày mới nhất
-const posts = allPosts
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+import BlogLatestPosts from '~/components/BlogLatestPosts.astro';
 ---
 
 <Layout title="Trang chủ - Blog của tôi">
+  <BlogLatestPosts title="Danh sach Blog Hoadv" information={`Bai viet Hoadv`} />
+
   <Stats
     stats={[
       { title: 'Downloads', amount: '132K' },
